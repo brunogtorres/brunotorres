@@ -6,23 +6,36 @@
 }
 
 body{
-    background-image: url('http://www.vanessametonini.com.br/imersaocss/a1/img/fundo.jpg');
-    background-size: auto 100vh;
+    background-image: url('background.jpg');
+    background-size: cover;
     height: 100vh;
     font-size: 10px;
     font-family: 'Roboto', sans-serif;
+    background-attachment: fixed;
   }
 
+
+@media (min-width: 300px) {
+    body{
+        font-size:15px;
+    }
+}
   /*se a tela tiver pelo menos 400 px vai carregar esses estilos*/
 @media (min-width: 400px) {
     body{
-        font-size:14px;
+        font-size:16px;
     }
 }
 
 @media (min-width: 600px) {
     body{
         font-size:18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    body{
+        font-size:20px;
     }
 }
 
@@ -58,7 +71,7 @@ body{
 
   .menu a:active,
   .menu a:hover{
-      background-color: teal;
+      background-color: black;
       color: whitesmoke;
   }
 
@@ -80,7 +93,7 @@ body{
   }
   
   a{
-    color: teal;
+    color: BLACK;
     text-decoration: none;
   }
   
@@ -107,23 +120,62 @@ body{
   .contato .icons{
       text-align: center;
   }
-
+  .sobre,
   .portfolio{
     padding: 2em;
     min-height: 100vh;
+    margin-left: auto ;
+    margin-right: auto;
+    max-width: 1000px;
   }
 
   .contato {
     min-height: 20vh;
     padding: 2em;
+    margin-left: auto ;
+    margin-right: auto;
   }
 
+  @media (min-width: 1400px){
+  .menu,
+    max-width: 1400px;
+  }
+  }
+
+  @media (min-width: 100px){
+    .contato,
+    .sobre,
+    .portfolio{
+      max-width: 1000px;
+    }
+    }
+
+  .sobre h2,
   .contato h2,
   .portfolio h2{
     color: whitesmoke;
     margin-bottom: 1em;
-    font-size: 2em;
+    margin-top: 0.6em;
+    font-size: 2.7em;
     text-align: center;
+  }
+
+  .sobre p{
+    color: whitesmoke;
+    text-indent: 0;
+    margin-bottom: 1em;
+    text-align: justify;
+  }
+
+  .sobre .avatar{
+    float: right;
+    margin-left: 1em;
+  }
+
+  .sobre .avatar img{
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+    height: 12em;
+    width: 12em;
   }
 
   .contato a{
@@ -143,18 +195,19 @@ body{
       gap: 1em;
       justify-content: center;
       align-content: center;
-      height: calc(100vh - 2em - 48px - 2em);
+      grid-template-columns: 280px;
+      
   }
 
   @media (min-width: 560px){
     .portfolio .grid {
-        grid-template-columns: 240px 240px;
+        grid-template-columns: 280px 280px;
     }
   }
 
   @media (min-width: 880px){
     .portfolio .grid {
-        grid-template-columns: repeat(3,240px);
+        grid-template-columns: repeat(3,280px);
     }
   }
 
@@ -163,8 +216,8 @@ body{
   }
 
   .img-portfolio{
-      height: 180px;
-      width: 180px;
+      height: 160px;
+      width: 100%;
       object-fit: cover;
       border-radius: 10%;
       transform: scale(1);
@@ -172,6 +225,41 @@ body{
     
   }
 
-  .img-portfolio:hover{
+ /* .img-portfolio:hover{
       transform: scale(1.2);
+  } */
+
+  .card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+  }
+
+  .card-front,
+  .card-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    width: 100%;
+  }
+
+  .card-back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .7);
+    height: 160px;
+    width: 100%;
+    border-radius: 10%;
+    transform: rotateY(180deg);
+  }
+
+  .flip-card:hover .card{
+    transform: rotateY(180deg);
+  }
+
+  .flip-card{
+    perspective: 500px;
+    height: 160px;
   }
