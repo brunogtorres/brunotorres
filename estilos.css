@@ -166,6 +166,12 @@ body{
     margin-bottom: 1em;
   }
 
+  @media (min-width: 600px){
+    .sobre p{
+      text-align: justify;
+    }
+  }
+
   .sobre .avatar{
     float: right;
     margin-left: 1em;
